@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.inite-ai/inite-visibility",
   "title": "INITE AI Visibility",
-  "description": "Audit how AI assistants see any website. Checks the identity files an engine looks for, the crawler policy, the schema graph and page health, then asks the answer engines whether they name the site. Returns a score out of 100. Requires an INITE account: the server answers an unauthenticated call with the address of its authorization metadata, and the usual OAuth flow does the rest.",
+  "description": "See how ChatGPT, Claude, Gemini and Perplexity read any website. Scored out of 100.",
   "version": "1.0.0",
   "websiteUrl": "https://inite.ai/en/analyze",
   "repository": {
