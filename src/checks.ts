@@ -52,7 +52,7 @@ export const IDENTITY_FILES = [
   "/robots-ai.txt",
 ] as const;
 
-const UA = "inite-mcp (+https://inite.ai)";
+const UA = "inite-visibility (+https://inite.ai)";
 const TIMEOUT_MS = 10_000;
 
 /**

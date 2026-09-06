@@ -107,7 +107,7 @@ export async function remoteCall(
       "content-type": "application/json",
       accept: "application/json",
       authorization: `Bearer ${token}`,
-      "user-agent": `inite-mcp/${VERSION}`,
+      "user-agent": `inite-visibility/${VERSION}`,
     },
     body: JSON.stringify({ jsonrpc: "2.0", id: nextId++, method, params }),
   });
