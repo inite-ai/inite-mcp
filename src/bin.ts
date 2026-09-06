@@ -24,7 +24,7 @@ async function run(): Promise<void> {
       process.stderr.write(
         token
           ? `Signed in. Token from ${process.env.INITE_TOKEN ? "INITE_TOKEN" : TOKEN_PATH}.\n`
-          : `Not signed in. Run \`npx @inite/mcp login\`.\n`,
+          : `Not signed in. Run \`npx @inite/visibility login\`.\n`,
       );
       process.exitCode = token ? 0 : 1;
       return;
@@ -39,11 +39,11 @@ async function run(): Promise<void> {
     case "-h":
       process.stderr.write(
         [
-          `inite-mcp ${VERSION} — AI visibility audit as an MCP tool`,
+          `inite-visibility ${VERSION} — AI visibility audit as an MCP tool`,
           ``,
-          `  inite-mcp            run as an MCP server over stdio (what a client does)`,
-          `  inite-mcp login      sign in to inite.ai in your browser`,
-          `  inite-mcp whoami     say whether a usable token is present`,
+          `  inite-visibility            run as an MCP server over stdio (what a client does)`,
+          `  inite-visibility login      sign in to inite.ai in your browser`,
+          `  inite-visibility whoami     say whether a usable token is present`,
           ``,
           `  INITE_TOKEN      use this token instead of the stored one`,
           `  INITE_MCP_URL    point at a different endpoint (default ${REMOTE})`,

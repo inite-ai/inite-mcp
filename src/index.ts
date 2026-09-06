@@ -32,7 +32,7 @@ export const VERSION = "1.1.0";
 export class NotSignedIn extends Error {
   constructor() {
     super(
-      "Not signed in to inite.ai. Run `npx @inite/mcp login`, or set INITE_TOKEN in this server's environment.",
+      "Not signed in to inite.ai. Run `npx @inite/visibility login`, or set INITE_TOKEN in this server's environment.",
     );
   }
 }
@@ -132,7 +132,7 @@ export async function listTools(): Promise<{ tools: unknown[] }> {
     const token = await accessToken();
     if (!token) {
       process.stderr.write(
-        `Signed out: the three local checks are available. \`npx @inite/mcp login\` adds the full audit and the visibility score.\n`,
+        `Signed out: the three local checks are available. \`npx @inite/visibility login\` adds the full audit and the visibility score.\n`,
       );
       return { tools: local };
     }

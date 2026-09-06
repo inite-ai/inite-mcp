@@ -45,7 +45,7 @@ scored.
   "mcpServers": {
     "inite": {
       "command": "npx",
-      "args": ["-y", "@inite/mcp"]
+      "args": ["-y", "@inite/visibility"]
     }
   }
 }
@@ -54,7 +54,7 @@ scored.
 Then sign in once:
 
 ```sh
-npx @inite/mcp login
+npx @inite/visibility login
 ```
 
 That opens a browser, you approve, and the token is stored at
@@ -69,7 +69,7 @@ Nothing is written to the repository and no secret ships in the package.
   "mcpServers": {
     "inite": {
       "command": "npx",
-      "args": ["-y", "@inite/mcp"],
+      "args": ["-y", "@inite/visibility"],
       "env": { "INITE_TOKEN": "…" }
     }
   }
@@ -107,9 +107,9 @@ tool that blocked for a minute would be torn down by most clients' timeouts.
 ## Commands
 
 ```
-inite-mcp            run as an MCP server over stdio (what a client does)
-inite-mcp login      sign in through the browser
-inite-mcp whoami     say whether a usable token is present
+inite-visibility            run as an MCP server over stdio (what a client does)
+inite-visibility login      sign in through the browser
+inite-visibility whoami     say whether a usable token is present
 ```
 
 ## What this package is
