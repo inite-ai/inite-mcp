@@ -146,6 +146,25 @@ website: a free account gets the teaser tier, a paid one the full pipeline.
 | `INITE_TOKEN_FILE` | Where the token lives. Default `~/.config/inite/mcp.json`. |
 | `INITE_AUTH_URL` | Authorization server. Default `https://auth-api.inite.ai`. |
 
+## A note on the command name
+
+`npx @inite/visibility` resolves because there is exactly one binary in the
+package. npm looks for a command matching the package name with the scope
+stripped — `visibility` — does not find it, and runs the only one there is.
+
+The binary is called `inite-visibility` rather than `visibility` on purpose: a
+scoped package has no business claiming a word that general in your `PATH` on
+a global install. The cost is that a second binary would break the line above
+for every client, so a test pins it at one.
+
+If you are invoking it from a directory that contains this package's own
+`package.json`, npm prefers the local copy and finds no linked command. Name it
+explicitly there:
+
+```sh
+npx -p @inite/visibility inite-visibility login
+```
+
 ## Development
 
 ```sh
