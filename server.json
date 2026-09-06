@@ -27,15 +27,15 @@
     {
       "registryType": "npm",
       "identifier": "@inite/mcp",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "transport": {
         "type": "stdio"
       },
       "environmentVariables": [
         {
           "name": "INITE_TOKEN",
-          "description": "Access token for inite.ai. Run `npx @inite/mcp login` to obtain one through the browser.",
-          "isRequired": true,
+          "description": "Access token for inite.ai. Optional: three checks run locally without one. Run `npx @inite/mcp login` to add the full audit.",
+          "isRequired": false,
           "isSecret": true
         }
       ]
@@ -43,8 +43,8 @@
   ],
   "_meta": {
     "io.modelcontextprotocol.registry/publisher-provided": {
-      "tools": 2,
-      "auth": "oauth2",
+      "tools": 5,
+      "auth": "none for the local checks, oauth2 for the full audit",
       "quota": "the account's own daily allowance, same as the web app",
       "locales": [
         "en",

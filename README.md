@@ -18,6 +18,24 @@ sections.
 
 It is the same audit that runs at [inite.ai/en/analyze](https://inite.ai/en/analyze).
 
+## Works before you sign in
+
+Three of the tools run entirely on your machine — a `robots.txt` fetched, a
+file probed for, a page parsed. No account, no allowance, no call home.
+
+```
+> Is anything blocking AI crawlers on stripe.com?
+
+  check_ai_access(url: "stripe.com")
+
+  Retrieval: all 7 answer-engine crawlers may fetch the site.
+  Training:  3 of 8 blocked — Meta-ExternalAgent, Bytespider, Amazonbot.
+```
+
+Signing in adds the two that cost something real: the answer engines are
+actually asked whether they name the site, and the eight weighted sections are
+scored.
+
 ## Install
 
 **Claude Desktop, Cursor, or any client that launches a stdio server:**
@@ -67,13 +85,23 @@ which names the authorization server.
 
 ## Tools
 
+**Local — no account:**
+
 | tool | what it does |
 |---|---|
-| `analyze_site(url)` | Starts an audit and returns a `run_id`. Takes about a minute. |
-| `get_analysis(run_id)` | Progress while it runs; the score and the report address once it finishes. |
+| `check_ai_access(url)` | Which AI crawlers `robots.txt` lets in, separating the ones that fetch a page to answer a live question from the ones that only collect training data. Blocking the first kind is what makes a site invisible; blocking the second costs nothing. |
+| `check_identity_files(url)` | Which of the ten identity files exist — `llms.txt`, `ai.json`, `identity.json` and the rest. |
+| `check_page_signals(url)` | Title, description, canonical, hreflang, and the Schema.org types in the page's JSON-LD. |
 
-Two tools rather than one, because the audit is asynchronous. A single tool
-that blocked for a minute would be torn down by most clients' timeouts.
+**Remote — needs an account:**
+
+| tool | what it does |
+|---|---|
+| `analyze_site(url)` | Starts the full audit and returns a `run_id`. Takes about a minute. |
+| `get_analysis(run_id)` | Progress while it runs; the score out of 100 and the report address once it finishes. |
+
+Two tools rather than one for the audit, because it is asynchronous. A single
+tool that blocked for a minute would be torn down by most clients' timeouts.
 
 ## Commands
 
@@ -85,11 +113,20 @@ inite-mcp whoami     say whether a usable token is present
 
 ## What this package is
 
-A bridge, and deliberately a thin one. It defines no tools of its own: it asks
-`inite.ai` what it offers and forwards calls there, so the tool list your
-client sees is whatever the service implements today. A local copy of the
-schemas would be a second source of truth, and the first thing it would do is
-drift.
+Two halves.
+
+The local checks are real work done here: fetching, parsing, and the robots
+rules applied properly — most-specific group wins, longest matching rule wins,
+`Allow` breaks a tie. They cost nobody anything because your machine does them.
+
+The remote half defines no schemas of its own. It asks `inite.ai` what it
+offers and forwards calls there, so that tool list is whatever the service
+implements today. A local copy would be a second source of truth, and the first
+thing it would do is drift.
+
+What stays on the server is what costs something or is ours: four answer
+engines asked whether they name a site, and the weights that turn everything
+into one number. The local tools report facts; `analyze_site` reports a score.
 
 ## Account and allowance
 
