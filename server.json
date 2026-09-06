@@ -1,0 +1,57 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.inite-ai/inite-visibility",
+  "title": "INITE AI Visibility",
+  "description": "Audit how AI assistants see any website. Checks the identity files an engine looks for, the crawler policy, the schema graph and page health, then asks the answer engines whether they name the site. Returns a score out of 100. Requires an INITE account: the server answers an unauthenticated call with the address of its authorization metadata, and the usual OAuth flow does the rest.",
+  "version": "1.0.0",
+  "websiteUrl": "https://inite.ai/en/analyze",
+  "repository": {
+    "url": "https://github.com/inite-ai/inite-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://inite.ai/api/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer <access_token>. Clients that speak the MCP authorization flow obtain one on their own: an unauthenticated call returns 401 with WWW-Authenticate pointing at https://inite.ai/.well-known/oauth-protected-resource, which names auth.inite.ai as the authorization server.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@inite/mcp",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "INITE_TOKEN",
+          "description": "Access token for inite.ai. Run `npx @inite/mcp login` to obtain one through the browser.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "tools": 2,
+      "auth": "oauth2",
+      "quota": "the account's own daily allowance, same as the web app",
+      "locales": [
+        "en",
+        "ru",
+        "pt",
+        "es"
+      ]
+    }
+  }
+}

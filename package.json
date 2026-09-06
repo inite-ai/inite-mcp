@@ -1,0 +1,28 @@
+{
+  "name": "@inite/mcp",
+  "version": "1.0.0",
+  "description": "MCP server for the INITE AI visibility audit — see how ChatGPT, Claude, Gemini and Perplexity read a website, from inside your agent.",
+  "keywords": ["mcp", "modelcontextprotocol", "aeo", "ai-visibility", "llms-txt", "seo"],
+  "license": "MIT",
+  "author": "INITE (https://inite.ai)",
+  "homepage": "https://inite.ai/en/analyze",
+  "repository": { "type": "git", "url": "git+https://github.com/inite-ai/inite-mcp.git" },
+  "bugs": { "url": "https://github.com/inite-ai/inite-mcp/issues" },
+  "type": "module",
+  "bin": { "inite-mcp": "dist/bin.js" },
+  "main": "dist/index.js",
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test test/*.test.js",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}
