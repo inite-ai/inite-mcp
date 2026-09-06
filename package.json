@@ -15,10 +15,10 @@
   "homepage": "https://inite.ai/en/analyze",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/inite-ai/inite-mcp.git"
+    "url": "git+https://github.com/inite-ai/inite-visibility.git"
   },
   "bugs": {
-    "url": "https://github.com/inite-ai/inite-mcp/issues"
+    "url": "https://github.com/inite-ai/inite-visibility/issues"
   },
   "type": "module",
   "bin": {

@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "websiteUrl": "https://inite.ai/en/analyze",
   "repository": {
-    "url": "https://github.com/inite-ai/inite-mcp",
+    "url": "https://github.com/inite-ai/inite-visibility",
     "source": "github"
   },
   "remotes": [
