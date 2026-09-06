@@ -3,7 +3,7 @@
   "name": "io.github.inite-ai/inite-visibility",
   "title": "INITE AI Visibility",
   "description": "See how ChatGPT, Claude, Gemini and Perplexity read any website. Scored out of 100.",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "websiteUrl": "https://inite.ai/en/analyze",
   "repository": {
     "url": "https://github.com/inite-ai/inite-visibility",
@@ -27,7 +27,7 @@
     {
       "registryType": "npm",
       "identifier": "@inite/visibility",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "transport": {
         "type": "stdio"
       },
