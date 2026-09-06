@@ -58,8 +58,9 @@ npx @inite/mcp login
 ```
 
 That opens a browser, you approve, and the token is stored at
-`~/.config/inite/mcp.json` with owner-only permissions. Nothing is written to
-the repository and no secret ships in the package.
+`~/.config/inite/mcp.json` with owner-only permissions. Authorization code with
+PKCE over a loopback redirect, the flow RFC 8252 prescribes for a native app.
+Nothing is written to the repository and no secret ships in the package.
 
 **Already have a token** (CI, a shared config, a container):
 
