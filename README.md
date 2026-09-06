@@ -146,6 +146,16 @@ website: a free account gets the teaser tier, a paid one the full pipeline.
 | `INITE_TOKEN_FILE` | Where the token lives. Default `~/.config/inite/mcp.json`. |
 | `INITE_AUTH_URL` | Authorization server. Default `https://auth-api.inite.ai`. |
 
+## Namespace
+
+Published to the MCP registry as `ai.inite/inite-visibility`, a namespace held
+by proving control of `inite.ai` — the public half of the key is served at
+[/.well-known/mcp-registry-auth](https://inite.ai/.well-known/mcp-registry-auth).
+
+Named by the domain rather than the code host on purpose: a service whose whole
+job is being legible to machines should tell them who it belongs to in its own
+name.
+
 ## A note on the command name
 
 `npx @inite/visibility` resolves because there is exactly one binary in the
